@@ -45,5 +45,16 @@ namespace Shape_Master
             double p = P() / 2;
             return Math.Sqrt(p * (p-a) * (p-b) * (p-c));
         }
+
+        public override string ToString()
+        {
+            string s = "";
+            s += a + ", ";
+            s += b + ", ";
+            s += c + "; ";
+            s += P() + "; ";
+            s += S();
+            return s;
+        }
     }
 }

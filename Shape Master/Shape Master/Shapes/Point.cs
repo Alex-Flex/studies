@@ -19,5 +19,13 @@ namespace Shape_Master
             this.x = x;
             this.y = y;
         }
+
+        public override string ToString()
+        {
+            string s = "";
+            s += x + ", ";
+            s += y + "; ";
+            return s;
+        }
     }
 }

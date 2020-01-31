@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Shape_Master
 {
@@ -23,6 +24,15 @@ namespace Shape_Master
         
         public override double S(){
             return 2*Math.PI*r*r;
+        }
+
+        public override string ToString()
+        {
+            string s = "";
+            s += r + "; ";
+            s += P() + "; ";
+            s += S();
+            return s;
         }
     }
 }

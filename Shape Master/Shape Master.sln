@@ -1,16 +1,31 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shape Master", "Shape Master\Shape Master.csproj", "{1686DAF9-DF92-41F8-8337-920138F457DF}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shape Master", "Shape Master\Shape Master.csproj", "{1686DAF9-DF92-41F8-8337-920138F457DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1686DAF9-DF92-41F8-8337-920138F457DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1686DAF9-DF92-41F8-8337-920138F457DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1686DAF9-DF92-41F8-8337-920138F457DF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1686DAF9-DF92-41F8-8337-920138F457DF}.Debug|x86.Build.0 = Debug|Any CPU
 		{1686DAF9-DF92-41F8-8337-920138F457DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1686DAF9-DF92-41F8-8337-920138F457DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1686DAF9-DF92-41F8-8337-920138F457DF}.Release|x86.ActiveCfg = Release|x86
+		{1686DAF9-DF92-41F8-8337-920138F457DF}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA146D11-8798-4A11-B50B-A04FF53C84E9}
 	EndGlobalSection
 EndGlobal

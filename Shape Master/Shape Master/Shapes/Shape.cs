@@ -1,4 +1,6 @@
-﻿namespace Shape_Master
+﻿using System.Collections.Generic;
+
+namespace Shape_Master
 {
     /// <summary>
     /// Фигуру можно создать по точкам или по отрезкам

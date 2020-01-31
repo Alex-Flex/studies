@@ -29,7 +29,7 @@ namespace Shape_Master
             {
                 p += MathThings.Line(_points.ElementAt(i), _points.ElementAt(i + 1));
             }
-            p += MathThings.Line(_points.ElementAt(_points.Count()), _points.ElementAt(0));
+            p += MathThings.Line(_points.ElementAt(_points.Count()-1), _points.ElementAt(0));
             return p;
         }
 
@@ -42,6 +42,18 @@ namespace Shape_Master
                 s += new Triangle(_points.ElementAt(0), _points.ElementAt(i), _points.ElementAt(i + 1)).P();
             }
 
+            return s;
+        }
+
+        public override string ToString()
+        {
+            string s = "";
+            foreach(Point p in _points)
+            {
+                s += p + " ";
+            }
+            s += P() + "; ";
+            s += S();
             return s;
         }
     }

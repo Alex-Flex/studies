@@ -34,5 +34,14 @@ namespace Shape_Master
         public override double S(){
             return a*a;
         }
+
+        public override string ToString()
+        {
+            string s = "";
+            s += a + " * 4; ";
+            s += P() + "; ";
+            s += S();
+            return s;
+        } 
     }
 }
