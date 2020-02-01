@@ -6,8 +6,7 @@ namespace Shape_Master.Logic
 {
     abstract class Command
     {
-        public abstract bool Verify();
-        public abstract void Parse();
+        public abstract bool Validate();
         public abstract void Execute();
     }
 }
