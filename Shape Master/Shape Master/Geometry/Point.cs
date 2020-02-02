@@ -1,4 +1,7 @@
 ﻿//просто точка, ничего лишнего
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Shape_Master
 {
     /// <summary>
@@ -18,6 +21,12 @@ namespace Shape_Master
         {
             this.x = x;
             this.y = y;
+        }
+
+        public Point(List<double> coordinates)
+        {
+            this.x = coordinates.ElementAt(0);
+            this.y = coordinates.ElementAt(1);
         }
 
         public override string ToString()

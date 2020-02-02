@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Shape_Master.Logic
 {
@@ -11,42 +10,44 @@ namespace Shape_Master.Logic
     {
         private Context context;
         private string command;
-        private string parameters;
         private string howtocreate;
-        private string figure;
         private string[] words;
 
         public CommandCreateShape(Context context, string command)
         {
             this.context = context;
             this.command = command;
-            string[] words = command.Split(' ');
+            words = command.Split(" ");
         }
 
         /// <summary>
-        /// Исполняет команду
+        /// Выполняет команду
         /// </summary>
         public override void Execute()
-        {
-            
-        }
-
-        /// <summary>
-        /// Парсит команду
-        /// </summary>
-        private void Parse()
-        {
-            string[] args = command.Split(' ');
-            figure = args[0];
+    {
+            string[] args = command.Split(" ");
             howtocreate = args[1];
-            string
-            if(howtocreate == "bypoint")
+            List<double> doubles = new List<double>();
+            if (howtocreate == "bypoint")
             {
-                
+                List<Point> points = new List<Point>();
+                foreach(string point in words[3].Split(";"))
+                {
+                    foreach (string coord in point.Split(","))
+                    {
+                        doubles.Add(Double.Parse(coord));
+                    }
+                    points.Add(new Point(doubles));
+                }
+                context.Add(new Shape2D(points));
             }
             else
             {
-
+                foreach (string side in words[3].Split(" "))
+                {
+                    doubles.Add(Double.Parse(side));
+                }
+                context.Add(new Shape2D(doubles));
             }
         }
 
@@ -58,13 +59,6 @@ namespace Shape_Master.Logic
         {
             //неверный способ создания фигуры
             if (words[1] != "bypoint" && words[1] != "byside") return false;
-
-            //нельзя создать многоугольник по сторонам
-            if (words[0] == "polygon" && words[1] == "byside") return false;
-
-            //неправильное название фигуры
-            if (words[0] != "triangle" && words[0] != "rectangle"
-                && words[0] != "circle" && words[0] != "square") return false;
 
             return ValidateBySide();
         }

@@ -10,6 +10,18 @@ namespace Shape_Master.Logic
     /// </summary>
     class Strings
     {
-        public static string GREETING = 
+        public static string GREETING = "Привет, нужна помощь? Введи help";
+        public static string COMMAND_PREFIX = "\n" + DateTime.Now.ToString() + " > ";
+        public static string HELP = "\nСинтаксис команды созданиия фигуры выглядит так:" +
+            "\nshape способ_создания параметры, где:" +
+            "\nспособ_создания: bypoint (по точкам) или byside (по сторонам)" +
+            "\nпараметры: числа, идут через пробелы (15 26 48)" +
+            "\tили точки, пишутся как: x1,y1;x2,y2; и т. д." +
+            "\n\n exit -- выход, clear -- удаляет все фигуры в данном сеансе";
+
+        public static string NO_SUCH_COMMAND = "\nТакой команды нет, введите help для подробностей";
+        public static string WRONG_COMMAND = "\nНеверные параметры или синтаксис команды. help в помощь";
+        public static string SUCCESS = "\nКоманда выполнена!";
+        public static string COMMON_RESULT = "Общие значения величин: ";
     }
 }

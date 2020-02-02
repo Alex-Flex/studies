@@ -1,79 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using Shape_Master.Logic;
 
 namespace Shape_Master
 {
     public class App
     {
+        static string command = "";                 //текст команды
+        static string response = "";                //ответ, выводимый на консоль 
+        static Context context = new Context();     //контекст
+        static Command c = new CommandEmpty();      //команда
+
         public static void Run()
         {
-            int figure;
-            List<Shape> shapes = new List<Shape>();
-            Shape s = null;
-            while(true){
-                Console.WriteLine("1--Круг\n" +
-                              "2--Квадрат\n" +
-                              "3--Прямоугольник\n" +
-                              "4--Треугольник\n" +
-                              "5 -- многоугольник\n" +
-                              "Введите номер фигуры: ");
-                figure = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("\nВведите стороны: ");
-                switch(figure){
-                    case 1:
-                        s = new Circle(GetInput());
-                        break;
-                    case 2:
-                        s = new Square(GetInput());
-                        break;
-                    case 3:
-                        s = new Rectangle(GetInput(), GetInput());
-                        break;
-                    case 4:
-                        s = new Triangle(GetInput(), GetInput(), GetInput());
-                        break;
-                    case 5:
-                        Console.WriteLine("Введите координаты точек, точек должно быть не меньше 5.\n" +
-                                "Когда закончите, просто нажмите Enter, ничего не вводя");
-                        List<Point> points = new List<Point>();
-                        while (true)
-                        {
-                            try
-                            {
-                                Point p = new Point(GetInput(), GetInput());
-                                points.Add(p);
-                            }
-                            catch (System.FormatException)
-                            {
-                                break;
-                            }
-                        }
-                        s = new Polygon(points);
-                        break;
-                    default:
-                        continue;
-                }
-                Console.WriteLine("P={0} S={1}", s.P(), s.S());
-                shapes.Add(s);
-                Console.Write("Желаете повторить? y -- да, n -- нет");
-                if(Console.ReadLine()=="n")
-                {
-                    //сумма периметров всех фигур
-                    double psum = shapes.Sum(P => s.P());
-                    //сумма площадей всех фигур
-                    double ssum = shapes.Sum(S => s.S());
-                    Console.WriteLine("Периметр = {0}, Площадь = {1}", psum, ssum);
-                    break;
-                }
-                Console.Clear();
+            Console.Write(Strings.GREETING);
+            while (true)
+            {
+                WorkWithUser();
             }
         }
 
-        //просто получаем дробное число с клавиатуры
-        private static double GetInput()
+        private static void WorkWithUser()
         {
-            return Convert.ToDouble(Console.ReadLine());
+            Console.Write(Strings.COMMAND_PREFIX);
+            command = Console.ReadLine();
+            switch (c.GetType(command))
+            {
+                case Command.COMMAND_UNKNOWN:
+                    response = Strings.NO_SUCH_COMMAND;
+                    break;
+
+                case Command.COMMAND_CREATE:
+                    c = new CommandCreateShape(context, command);
+                    if (c.Validate())
+                    {
+                        c.Execute();
+                        response = Strings.SUCCESS;
+                    }
+                    else
+                    {
+                        response = Strings.WRONG_COMMAND;
+                    }
+                    break;
+
+                case Command.COMMAND_CLEAR:
+                    c = new CommandForget(context);
+                    response = Strings.SUCCESS;
+                    break;
+
+                case Command.COMMAND_HELP:
+                    response = Strings.HELP;
+                    break;
+
+                case Command.COMMAND_EXIT:
+                    c = new CommandExit();
+                    break;
+                case Command.COMMAND_TOTAL:
+                    c = new CommandTotalize(context);
+                    response = Strings.SUCCESS;
+                    break;
+            }
+            c.Execute();
+            Console.Write(response);
         }
     }
 }

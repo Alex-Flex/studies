@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Shape_Master.Logic
 {
     /// <summary>
-    /// Все заомненные фигуры здесь
+    /// Все запомненные фигуры здесь
     /// </summary>
     class Context
     {
-        private List<Shape> shapes;
+        private List<Shape2D> shapes;
         private string filename = "remembered_shapes";
         private FileInfo info;
 
         public Context()
         {
-            this.shapes = new List<Shape>();
-            new FileInfo(filename);
+            this.shapes = new List<Shape2D>();
+            info = new FileInfo(filename);
             info.Create();
+            File.SetAttributes(info.FullName, FileAttributes.Normal);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Shape_Master.Logic
         /// </summary>
         /// <param name="index">Номер в списке</param>
         /// <returns>Фигура</returns>
-        public Shape Get(int index)
+        public Shape2D Get(int index)
         {
             return shapes.ElementAt(index);
         }
@@ -36,38 +36,26 @@ namespace Shape_Master.Logic
         /// Добавить фигуру
         /// </summary>
         /// <param name="o">Фигура</param>
-        public void Add(Shape o)
+        public void Add(Shape2D o)
         {
             shapes.Add(o);
             Remember();
         }
 
         /// <summary>
-        /// Сумма всех периметров фигур 
+        /// Подытоживаем наши свершения
         /// </summary>
-        /// <returns></returns>
-        public double TotalizeP()
+        public void Totalize()
         {
             double perimeter = 0;
-            foreach(Shape s in shapes)
+            double spaces = 0;
+            foreach (Shape2D s in shapes)
             {
+                Console.WriteLine(s.ToString());
+                spaces += s.S();
                 perimeter += s.P();
             }
-            return perimeter;
-        }
-
-        /// <summary>
-        /// Сумма всех площадей фигур
-        /// </summary>
-        /// <returns></returns>
-        public double TotalizeS()
-        {
-            double spaces = 0;
-            foreach (Shape s in shapes)
-            {
-                spaces += s.S();
-            }
-            return spaces;
+            Console.WriteLine(Strings.COMMON_RESULT + "P = {0}, S = {1}", perimeter, spaces);
         }
 
         /// <summary>
@@ -79,8 +67,10 @@ namespace Shape_Master.Logic
             {
                 info = new FileInfo(filename);
                 info.Create();
+                File.SetAttributes(info.FullName, FileAttributes.Normal);
             }
-            StreamWriter writer = new StreamWriter(info.FullName, true);
+            Stream stream = new FileStream(info.FullName, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+            StreamWriter writer = new StreamWriter(stream);
             writer.WriteLine(shapes.ElementAt(shapes.Count() - 1));
             writer.Close();
         }
