@@ -17,30 +17,29 @@
         /// <returns></returns>
         public int GetType(string command)
         {
-            if (command.Contains("shape"))
+            if ((command.Contains("bypoint") || command.Contains("byside")) &&
+                (command.Contains("triangle") || command.Contains("rectangle") ||
+                command.Contains("circle") || command.Contains("square") || command.Contains("polygon")))
             {
                 return COMMAND_CREATE;
             } 
-            else if (command.Contains("clear"))
+            if (command.Contains("clear"))
             {
                 return COMMAND_CLEAR;
             }
-            else if (command.Contains("help"))
+            if (command.Contains("help"))
             {
                 return COMMAND_HELP;
             }
-            else if (command.Contains("exit"))
+            if (command.Contains("exit"))
             {
                 return COMMAND_EXIT;
             }
-            else if (command.Contains("totalize"))
+            if (command.Contains("totalize"))
             {
                 return COMMAND_TOTAL;
             }
-            else
-            {
-                return 0;
-            }
+            return 0;
         }
         public abstract void Execute();
         public abstract bool Validate();

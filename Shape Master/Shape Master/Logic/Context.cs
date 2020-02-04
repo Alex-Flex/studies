@@ -10,13 +10,13 @@ namespace Shape_Master.Logic
     /// </summary>
     class Context
     {
-        private List<Shape2D> shapes;
+        private List<Shape> shapes;
         private string filename = "remembered_shapes";
         private FileInfo info;
 
         public Context()
         {
-            this.shapes = new List<Shape2D>();
+            this.shapes = new List<Shape>();
             info = new FileInfo(filename);
             info.Create();
             File.SetAttributes(info.FullName, FileAttributes.Normal);
@@ -27,7 +27,7 @@ namespace Shape_Master.Logic
         /// </summary>
         /// <param name="index">Номер в списке</param>
         /// <returns>Фигура</returns>
-        public Shape2D Get(int index)
+        public Shape Get(int index)
         {
             return shapes.ElementAt(index);
         }
@@ -36,7 +36,7 @@ namespace Shape_Master.Logic
         /// Добавить фигуру
         /// </summary>
         /// <param name="o">Фигура</param>
-        public void Add(Shape2D o)
+        public void Add(Shape o)
         {
             shapes.Add(o);
             Remember();
@@ -49,7 +49,7 @@ namespace Shape_Master.Logic
         {
             double perimeter = 0;
             double spaces = 0;
-            foreach (Shape2D s in shapes)
+            foreach (Shape s in shapes)
             {
                 Console.WriteLine(s.ToString());
                 spaces += s.S();

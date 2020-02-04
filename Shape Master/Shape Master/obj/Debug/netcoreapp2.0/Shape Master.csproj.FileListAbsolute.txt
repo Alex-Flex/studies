@@ -1,0 +1,4 @@
+C:\Users\TS10User\Desktop\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.csprojResolveAssemblyReference.cache
+C:\Users\TS10User\Desktop\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.csproj.CoreCompileInputs.cache
+C:\Users\TS10User\Desktop\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.AssemblyInfoInputs.cache
+C:\Users\TS10User\Desktop\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.AssemblyInfo.cs
