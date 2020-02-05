@@ -26,40 +26,36 @@ namespace Shape_Master
             switch (c.GetType(command))
             {
                 case Command.COMMAND_UNKNOWN:
-                    response = Strings.NO_SUCH_COMMAND;
+                    c = new CommandNotFound();
                     break;
 
                 case Command.COMMAND_CREATE:
                     c = new CommandCreateShape(context, command);
-                    if (c.Validate())
-                    {
-                        c.Execute();
-                        response = Strings.SUCCESS;
-                    }
-                    else
-                    {
-                        response = Strings.WRONG_COMMAND;
-                    }
                     break;
 
                 case Command.COMMAND_CLEAR:
                     c = new CommandForget(context);
-                    response = Strings.SUCCESS;
                     break;
 
                 case Command.COMMAND_HELP:
-                    response = Strings.HELP;
+                    c = new CommandHelp();
                     break;
 
                 case Command.COMMAND_EXIT:
                     c = new CommandExit();
                     break;
+
                 case Command.COMMAND_TOTAL:
                     c = new CommandTotalize(context);
-                    response = Strings.SUCCESS;
                     break;
             }
-            c.Execute();
+           // try { 
+                c.Execute();
+            //}
+            //catch (Exception)
+            //{
+            //    response = Strings.WRONG_COMMAND;
+            //}
             Console.Write(response);
         }
     }

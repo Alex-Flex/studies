@@ -29,9 +29,9 @@ namespace Shape_Master
 
         public Triangle(List<Point> points)
         {
-            A = MathShape.Line(points.ElementAt(0), points.ElementAt(1));
-            B = MathShape.Line(points.ElementAt(1), points.ElementAt(2));
-            C = MathShape.Line(points.ElementAt(2), points.ElementAt(0));
+            A = MathThings.Line(points.ElementAt(0), points.ElementAt(1));
+            B = MathThings.Line(points.ElementAt(1), points.ElementAt(2));
+            C = MathThings.Line(points.ElementAt(2), points.ElementAt(0));
         }
 
         public  override double P(){

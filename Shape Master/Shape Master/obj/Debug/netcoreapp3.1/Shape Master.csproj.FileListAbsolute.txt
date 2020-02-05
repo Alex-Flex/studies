@@ -9,3 +9,14 @@ D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\ne
 D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\netcoreapp3.1\Shape Master.AssemblyInfo.cs
 D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\netcoreapp3.1\Shape Master.dll
 D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\netcoreapp3.1\Shape Master.pdb
+D:\ПРАКТИКА\Shape Master\Shape Master\obj\Debug\netcoreapp3.1\Shape Master.csprojAssemblyReference.cache
+D:\ПРАКТИКА\Shape Master\Shape Master\obj\Debug\netcoreapp3.1\Shape Master.AssemblyInfoInputs.cache
+D:\ПРАКТИКА\Shape Master\Shape Master\obj\Debug\netcoreapp3.1\Shape Master.AssemblyInfo.cs
+D:\ПРАКТИКА\Shape Master\Shape Master\obj\Debug\netcoreapp3.1\Shape Master.dll
+D:\ПРАКТИКА\Shape Master\Shape Master\obj\Debug\netcoreapp3.1\Shape Master.pdb
+D:\ПРАКТИКА\Shape Master\Shape Master\bin\Debug\netcoreapp3.1\Shape Master.exe
+D:\ПРАКТИКА\Shape Master\Shape Master\bin\Debug\netcoreapp3.1\Shape Master.deps.json
+D:\ПРАКТИКА\Shape Master\Shape Master\bin\Debug\netcoreapp3.1\Shape Master.runtimeconfig.json
+D:\ПРАКТИКА\Shape Master\Shape Master\bin\Debug\netcoreapp3.1\Shape Master.runtimeconfig.dev.json
+D:\ПРАКТИКА\Shape Master\Shape Master\bin\Debug\netcoreapp3.1\Shape Master.dll
+D:\ПРАКТИКА\Shape Master\Shape Master\bin\Debug\netcoreapp3.1\Shape Master.pdb

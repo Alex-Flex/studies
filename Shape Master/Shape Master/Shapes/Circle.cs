@@ -10,11 +10,6 @@ namespace Shape_Master
             this.r = r;
         }
 
-        public override void EnterParams()
-        {
-            throw new NotImplementedException();
-        }
-
         public override double P(){
             return 2*Math.PI*r;
         }

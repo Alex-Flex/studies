@@ -1,4 +1,5 @@
-﻿using Shape_Master.Shapes;
+﻿using Shape_Master.Logic;
+using Shape_Master.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,9 @@ namespace Shape_Master
             var p = 0.0;
             for (var i = 0; i < _points.Count - 1; i++)
             {
-                p += MathShape.Line(_points[i], _points[i+1] );
+                p += MathThings.Line(_points[i], _points[i+1] );
             }
-            p += MathShape.Line(_points[0], _points[_points.Count-1]);
+            p += MathThings.Line(_points[0], _points[_points.Count-1]);
             return p;
         }
 

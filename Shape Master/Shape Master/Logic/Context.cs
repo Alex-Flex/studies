@@ -49,11 +49,14 @@ namespace Shape_Master.Logic
         {
             double perimeter = 0;
             double spaces = 0;
+            double sp, per;
             foreach (Shape s in shapes)
             {
-                Console.WriteLine(s.ToString());
-                spaces += s.S();
-                perimeter += s.P();
+                per = s.P();
+                sp = s.S();
+                Console.WriteLine(s.GetType() + ", P = {0}, S = {1}", per, sp);
+                spaces += sp;
+                perimeter += per;
             }
             Console.WriteLine(Strings.COMMON_RESULT + "P = {0}, S = {1}", perimeter, spaces);
         }
@@ -69,6 +72,7 @@ namespace Shape_Master.Logic
                 info.Create();
                 File.SetAttributes(info.FullName, FileAttributes.Normal);
             }
+
             Stream stream = new FileStream(info.FullName, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
             StreamWriter writer = new StreamWriter(stream);
             writer.WriteLine(shapes.ElementAt(shapes.Count() - 1));
