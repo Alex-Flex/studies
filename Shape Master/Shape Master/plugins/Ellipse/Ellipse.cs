@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Shape_Master.Shapes
 {
-    class Ellipse : Shape
+    class Ellipse : IShape
     {
         public double a { get; }
         public double b { get; }

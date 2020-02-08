@@ -9,7 +9,7 @@ namespace Shape_Master
     /// <summary>
     /// 
     /// </summary>
-    public class Polygon : Shape
+    public class Polygon : IShape
     {
         //точки
         private List<Point> _points;

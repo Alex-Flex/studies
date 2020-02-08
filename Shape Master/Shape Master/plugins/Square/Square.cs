@@ -7,7 +7,7 @@ namespace Shape_Master
    /// <summary>
    /// Просто квадрат
    /// </summary>
-    public class Square : Shape
+    public class Square : IShape
     {
         public double side;
         

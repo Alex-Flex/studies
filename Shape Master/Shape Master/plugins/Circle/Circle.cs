@@ -2,7 +2,7 @@
 
 namespace Shape_Master
 {
-    public class Circle : Shape
+    public class Circle : IShape
     {
         private double r;
         

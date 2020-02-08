@@ -4,13 +4,11 @@ using System.Text;
 
 namespace Shape_Master.Logic
 {
-    class CommandEmpty : Command
+    class CommandEmpty : ICommand
     {
-        public override void Execute()
-        {
-        }
+        public string Name { get => "CommandEmpty";  }
 
-        public override bool Validate()
+        public bool Execute(Context c, string s)
         {
             return true;
         }

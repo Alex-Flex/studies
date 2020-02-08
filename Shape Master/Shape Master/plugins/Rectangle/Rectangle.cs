@@ -7,7 +7,7 @@ namespace Shape_Master
     /// <summary>
     /// Прямоугольник
     /// </summary>
-    public class Rectangle : Shape
+    public class Rectangle : IShape
     {
         public List<double> sides;
         public List<Point> points;

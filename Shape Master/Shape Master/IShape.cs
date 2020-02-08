@@ -1,6 +1,6 @@
 ﻿namespace Shape_Master
 {
-    public abstract class Shape
+    public abstract class IShape
     {
         /// <summary>
         /// Периметр фигуры

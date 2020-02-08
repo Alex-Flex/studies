@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Shape_Master
 {
-    public class Triangle : Shape
+    public class Triangle : IShape
     {
         public double A { get; }
 

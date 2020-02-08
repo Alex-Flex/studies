@@ -7,16 +7,14 @@ namespace Shape_Master.Logic
     /// <summary>
     /// Вывод справки
     /// </summary>
-    class CommandHelp : Command
+    class CommandHelp : ICommand
     {
-        public override void Execute()
+        public string Name { get => "CommandHelp"; }
+
+        public bool Execute(Context c, String s)
         {
             Console.WriteLine(Strings.HELP);
-        }
-
-        public override bool Validate()
-        {
-            return false;
+            return true;
         }
     }
 }

@@ -7,15 +7,13 @@ namespace Shape_Master.Logic
     /// <summary>
     /// Выход из программы
     /// </summary>
-    class CommandExit : Command
+    class CommandExit : ICommand
     {
-        public override void Execute()
+        public string Name { get => "CommandExit"; }
+
+        public bool Execute(Context c, string s)
         {
             Environment.Exit(0);
-        }
-
-        public override bool Validate()
-        {
             return true;
         }
     }

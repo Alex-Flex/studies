@@ -1,7 +1,8 @@
 ﻿namespace Shape_Master.Logic
 {
-    class CommandTotalize : Command
+    class CommandTotalize : ICommand
     {
+        public string Name { get => "CommandTotalize"; }
         private Context context;
 
         public CommandTotalize(Context context)
@@ -9,13 +10,9 @@
             this.context = context;
         }
 
-        public override void Execute()
+        public bool Execute(Context c, string s)
         {
             context.Totalize();
-        }
-
-        public override bool Validate()
-        {
             return true;
         }
     }

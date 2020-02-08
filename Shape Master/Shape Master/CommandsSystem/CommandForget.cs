@@ -7,8 +7,9 @@ namespace Shape_Master.Logic
     /// <summary>
     /// Удаление данных о фигурах
     /// </summary>
-    class CommandForget : Command
+    class CommandForget : ICommand
     {
+        public string Name { get => "CommandForget"; }
         private Context context;
 
         public CommandForget(Context c)
@@ -16,13 +17,9 @@ namespace Shape_Master.Logic
             this.context = c;
         }
 
-        public override void Execute()
+        public bool Execute(Context c, string s)
         {
             context.ForgetAll();
-        }
-
-        public override bool Validate()
-        {
             return true;
         }
     }

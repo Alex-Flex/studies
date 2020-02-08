@@ -10,15 +10,16 @@ namespace Shape_Master.Logic
     /// </summary>
     class Context
     {
-        private List<Shape> shapes;
+        private List<IShape> shapes;
         private string filename = "remembered_shapes";
         private FileInfo info;
 
         public Context()
         {
-            this.shapes = new List<Shape>();
+            this.shapes = new List<IShape>();
             info = new FileInfo(filename);
-            info.Create();
+            if(!info.Exists)
+                info.Create();
             File.SetAttributes(info.FullName, FileAttributes.Normal);
         }
 
@@ -27,7 +28,7 @@ namespace Shape_Master.Logic
         /// </summary>
         /// <param name="index">Номер в списке</param>
         /// <returns>Фигура</returns>
-        public Shape Get(int index)
+        public IShape Get(int index)
         {
             return shapes.ElementAt(index);
         }
@@ -36,10 +37,10 @@ namespace Shape_Master.Logic
         /// Добавить фигуру
         /// </summary>
         /// <param name="o">Фигура</param>
-        public void Add(Shape o)
+        public void Add(IShape o, string command)
         {
             shapes.Add(o);
-            Remember();
+            Remember(command);
         }
 
         /// <summary>
@@ -50,7 +51,7 @@ namespace Shape_Master.Logic
             double perimeter = 0;
             double spaces = 0;
             double sp, per;
-            foreach (Shape s in shapes)
+            foreach (IShape s in shapes)
             {
                 per = s.P();
                 sp = s.S();
@@ -64,18 +65,19 @@ namespace Shape_Master.Logic
         /// <summary>
         /// Добавляем параметры фигуры в файл
         /// </summary>
-        public void Remember()
+        public void Remember(string s)
         {
             if (info == null)
             {
                 info = new FileInfo(filename);
-                info.Create();
+                if(!info.Exists)
+                    info.Create();
                 File.SetAttributes(info.FullName, FileAttributes.Normal);
             }
 
             Stream stream = new FileStream(info.FullName, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
             StreamWriter writer = new StreamWriter(stream);
-            writer.WriteLine(shapes.ElementAt(shapes.Count() - 1));
+            writer.WriteLine(s);
             writer.Close();
         }
 

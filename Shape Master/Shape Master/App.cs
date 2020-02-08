@@ -1,5 +1,6 @@
 ﻿using System;
 using Shape_Master.Logic;
+using System.Collections.Generic;
 
 namespace Shape_Master
 {
@@ -7,10 +8,17 @@ namespace Shape_Master
     {
         static string command = "";                 //текст команды
         static string response = "";                //ответ, выводимый на консоль 
-        static Context context = new Context();     //контекст
-        static Command c = new CommandEmpty();      //команда
+        Context context = new Context();     //контекст
+        
 
-        public static void Run()
+        private List<ICommand> Commands = new List<ICommand>();
+
+        public App()
+        {
+            Commands = new List<ICommand>() { new CommandCreateRectangle(context), new CommandEmpty(), new CommandExit(). new  };
+        }
+
+        public  void Run()
         {
             Console.Write(Strings.GREETING);
             while (true)
@@ -19,43 +27,20 @@ namespace Shape_Master
             }
         }
 
-        private static void WorkWithUser()
+        private  void WorkWithUser()
         {
             Console.Write(Strings.COMMAND_PREFIX);
-            command = Console.ReadLine();
-            switch (c.GetType(command))
+            command = Console.ReadLine(); // 
+            var nameCommand = command.Split(' ')[0];
+            var paramsCommand = "";
+            var com = Commands.Find(_ => _.Name == nameCommand);
+            if (com != null)
             {
-                case Command.COMMAND_UNKNOWN:
-                    c = new CommandNotFound();
-                    break;
-
-                case Command.COMMAND_CREATE:
-                    c = new CommandCreateShape(context, command);
-                    break;
-
-                case Command.COMMAND_CLEAR:
-                    c = new CommandForget(context);
-                    break;
-
-                case Command.COMMAND_HELP:
-                    c = new CommandHelp();
-                    break;
-
-                case Command.COMMAND_EXIT:
-                    c = new CommandExit();
-                    break;
-
-                case Command.COMMAND_TOTAL:
-                    c = new CommandTotalize(context);
-                    break;
+                com.Execute(paramsCommand); 
+                // tr 1,2,3 
+                // tr [(12,3),(15,6),(8,45)]
             }
-           // try { 
-                c.Execute();
-            //}
-            //catch (Exception)
-            //{
-            //    response = Strings.WRONG_COMMAND;
-            //}
+
             Console.Write(response);
         }
     }
