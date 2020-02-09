@@ -6,7 +6,7 @@ namespace Shape_Master
     {
         static void Main(string[] args)
         {
-            App.Run();
+            new App().Run();
         }
     }
 }

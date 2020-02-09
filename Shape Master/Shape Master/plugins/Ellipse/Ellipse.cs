@@ -12,8 +12,8 @@ namespace Shape_Master.Shapes
 
         public Ellipse(List<Point> points)
         {
-            a = MathThings.Line(points.ElementAt(0), points.ElementAt(1));
-            b = MathThings.Line(points.ElementAt(0), points.ElementAt(2));
+            a = UsefulThings.Line(points.ElementAt(0), points.ElementAt(1));
+            b = UsefulThings.Line(points.ElementAt(0), points.ElementAt(2));
         }
 
         public Ellipse(List<double> doubles)

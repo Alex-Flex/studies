@@ -12,7 +12,7 @@ namespace Shape_Master
         public double side;
         
         public Square(List<Point> points){
-            side = MathThings.Line(points.ElementAt(0), points.ElementAt(1));
+            side = UsefulThings.Line(points.ElementAt(0), points.ElementAt(1));
         }
 
         public Square(double side)

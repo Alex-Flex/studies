@@ -9,7 +9,7 @@ namespace Shape_Master.Logic
     /// </summary>
     class CommandForget : ICommand
     {
-        public string Name { get => "CommandForget"; }
+        public string Name { get => "forget"; }
         private Context context;
 
         public CommandForget(Context c)

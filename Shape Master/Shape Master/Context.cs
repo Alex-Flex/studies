@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace Shape_Master.Logic
 {
@@ -17,8 +18,9 @@ namespace Shape_Master.Logic
         public Context()
         {
             this.shapes = new List<IShape>();
-            info = new FileInfo(filename);
-            if(!info.Exists)
+            if(info==null)
+                info = new FileInfo(filename);
+            if (!info.Exists)
                 info.Create();
             File.SetAttributes(info.FullName, FileAttributes.Normal);
         }
@@ -75,10 +77,11 @@ namespace Shape_Master.Logic
                 File.SetAttributes(info.FullName, FileAttributes.Normal);
             }
 
-            Stream stream = new FileStream(info.FullName, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+            Stream stream = new FileStream(info.FullName, FileMode.Open, FileAccess.Write, FileShare.Write);
             StreamWriter writer = new StreamWriter(stream);
             writer.WriteLine(s);
             writer.Close();
+            stream.Close();
         }
 
         /// <summary>
@@ -88,6 +91,25 @@ namespace Shape_Master.Logic
         {
             info.Delete();
             info = null;
+        }
+
+        /// <summary>
+        /// Получаем список команд
+        /// </summary>
+        /// <returns></returns>
+        public List<ICommand> GetCommandList()
+        {
+            List<ICommand> commands = new List<ICommand>();
+            Type[] types = Assembly.GetExecutingAssembly()
+                .GetTypes()
+                .Where(t => t.GetType().IsInstanceOfType(typeof(ICommand)))
+                .ToArray();
+            foreach (Type t in types)
+            {
+                ICommand command = (ICommand) Activator.CreateInstance(t);
+                commands.Add(command);
+            }
+            return commands;
         }
     }
 }

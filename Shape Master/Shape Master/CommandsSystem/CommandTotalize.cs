@@ -2,7 +2,7 @@
 {
     class CommandTotalize : ICommand
     {
-        public string Name { get => "CommandTotalize"; }
+        public string Name { get => "totalize"; }
         private Context context;
 
         public CommandTotalize(Context context)

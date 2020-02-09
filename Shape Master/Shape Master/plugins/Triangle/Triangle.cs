@@ -22,16 +22,16 @@ namespace Shape_Master
 
         public Triangle(Point a, Point b, Point c)
         {
-            this.A = MathThings.Line(a, b);
-            this.B = MathThings.Line(b, c);
-            this.C = MathThings.Line(c, a);
+            this.A = UsefulThings.Line(a, b);
+            this.B = UsefulThings.Line(b, c);
+            this.C = UsefulThings.Line(c, a);
         }
 
         public Triangle(List<Point> points)
         {
-            A = MathThings.Line(points.ElementAt(0), points.ElementAt(1));
-            B = MathThings.Line(points.ElementAt(1), points.ElementAt(2));
-            C = MathThings.Line(points.ElementAt(2), points.ElementAt(0));
+            A = UsefulThings.Line(points.ElementAt(0), points.ElementAt(1));
+            B = UsefulThings.Line(points.ElementAt(1), points.ElementAt(2));
+            C = UsefulThings.Line(points.ElementAt(2), points.ElementAt(0));
         }
 
         public  override double P(){

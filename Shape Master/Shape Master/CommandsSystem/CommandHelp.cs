@@ -9,7 +9,7 @@ namespace Shape_Master.Logic
     /// </summary>
     class CommandHelp : ICommand
     {
-        public string Name { get => "CommandHelp"; }
+        public string Name { get => "help"; }
 
         public bool Execute(Context c, String s)
         {

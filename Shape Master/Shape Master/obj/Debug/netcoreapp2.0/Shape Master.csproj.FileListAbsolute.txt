@@ -2,3 +2,13 @@ C:\Users\TS10User\Desktop\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shap
 C:\Users\TS10User\Desktop\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.csproj.CoreCompileInputs.cache
 C:\Users\TS10User\Desktop\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.AssemblyInfoInputs.cache
 C:\Users\TS10User\Desktop\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.AssemblyInfo.cs
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\bin\Debug\netcoreapp2.0\Shape Master.deps.json
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\bin\Debug\netcoreapp2.0\Shape Master.runtimeconfig.json
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\bin\Debug\netcoreapp2.0\Shape Master.runtimeconfig.dev.json
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\bin\Debug\netcoreapp2.0\Shape Master.dll
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\bin\Debug\netcoreapp2.0\Shape Master.pdb
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.csprojAssemblyReference.cache
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.AssemblyInfoInputs.cache
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.AssemblyInfo.cs
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.dll
+D:\ПРАКТИКА\Программы\C#\Shape Master\Shape Master\obj\Debug\netcoreapp2.0\Shape Master.pdb

@@ -1,21 +1,21 @@
 ﻿using System;
 using Shape_Master.Logic;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
 
 namespace Shape_Master
 {
     public class App
     {
-        static string command = "";                 //текст команды
-        static string response = "";                //ответ, выводимый на консоль 
-        Context context = new Context();     //контекст
-        
-
+        private Context context = new Context();
         private List<ICommand> Commands = new List<ICommand>();
 
         public App()
         {
-            Commands = new List<ICommand>() { new CommandCreateRectangle(context), new CommandEmpty(), new CommandExit(). new  };
+            //формируем список всех команд
+            Commands = context.GetCommandList();
+            Console.Beep();
         }
 
         public  void Run()
@@ -30,18 +30,24 @@ namespace Shape_Master
         private  void WorkWithUser()
         {
             Console.Write(Strings.COMMAND_PREFIX);
-            command = Console.ReadLine(); // 
+            string command = Console.ReadLine();
             var nameCommand = command.Split(' ')[0];
-            var paramsCommand = "";
-            var com = Commands.Find(_ => _.Name == nameCommand);
-            if (com != null)
+            foreach(ICommand c in Commands)
             {
-                com.Execute(paramsCommand); 
-                // tr 1,2,3 
-                // tr [(12,3),(15,6),(8,45)]
+                if(c.Name == nameCommand)
+                {
+                    if (c.Execute(context, command))
+                    {
+                        Console.WriteLine(Strings.SUCCESS);
+                    } 
+                    else
+                    {
+                        Console.WriteLine(Strings.WRONG_COMMAND);
+                    }
+                    return;
+                }
             }
-
-            Console.Write(response);
+            Console.WriteLine(Strings.NO_SUCH_COMMAND);
         }
     }
 }

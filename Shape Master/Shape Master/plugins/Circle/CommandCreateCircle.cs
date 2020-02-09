@@ -12,21 +12,23 @@ namespace Shape_Master.plugins.CircleCommands
         public bool Execute(Context context, string command)
         {
             string[] args = command.Split(" ");
-            
+
             if (args.Length != 2)   //неверен синтаксис команды 
                 return false;
 
             if (args[0] != "circle")    //запрос не на создание нужной фигуры
                 return false;
 
-            double d;
-            if(Double.TryParse(args[1], out d))
-            {
-                context.Add(new Circle(d), command);
-                return true;
-            } 
+            //фигура задана отрезками
+            List<double> doubles = UsefulThings.ParseSides(args[1]);
+            if (doubles == null)
+                return false;
 
-            return false;
+            if (doubles.Count != 1) //не то количество сторон получилось
+                return false;
+
+            context.Add(new Rectangle(doubles), command);
+            return true;
         }
     }
 }

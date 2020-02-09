@@ -33,8 +33,8 @@ namespace Shape_Master
             }
             else
             {
-                a = MathThings.Line(points.ElementAt(0), points.ElementAt(1));
-                b = MathThings.Line(points.ElementAt(1), points.ElementAt(2));
+                a = UsefulThings.Line(points.ElementAt(0), points.ElementAt(1));
+                b = UsefulThings.Line(points.ElementAt(1), points.ElementAt(2));
             }
             return a * 2 + b * 2;
         }
@@ -48,8 +48,8 @@ namespace Shape_Master
             }
             else
             {
-                a = MathThings.Line(points.ElementAt(0), points.ElementAt(1));
-                b = MathThings.Line(points.ElementAt(1), points.ElementAt(2));
+                a = UsefulThings.Line(points.ElementAt(0), points.ElementAt(1));
+                b = UsefulThings.Line(points.ElementAt(1), points.ElementAt(2));
             }
             return a * b;
         }
